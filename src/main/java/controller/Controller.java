@@ -22,7 +22,12 @@ public class Controller {
 	
 	public Controller()
 	{
+		
 		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/calculadora.fxml"));
+	    	loader.setController(this);
+	    	loader.load();
+
 			initialize();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -202,16 +207,14 @@ public class Controller {
     	tf_display.setText(calc.getPantalla());
     }
     
-    public Parent get_view()
+    public GridPane get_view()
     {
     	return root;
     }
 
     @FXML
     void initialize() throws IOException {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/calculadora.fxml"));
-    	loader.setController(this);
-    	loader.load();
+    	
     	
     	calc = new Calculadora();
     	
